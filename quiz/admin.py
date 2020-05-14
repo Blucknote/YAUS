@@ -3,6 +3,7 @@ from django.contrib import admin
 from nested_inline.admin import NestedStackedInline, NestedModelAdmin
 from tabbed_admin import TabbedModelAdmin
 
+from quiz.forms import QuestionForm
 from quiz.models import Answer, Quiz, Question
 
 
@@ -13,6 +14,7 @@ class AnswerAdminInline(NestedStackedInline):
 
 class QuestionAdminInline(NestedStackedInline):
     model = Question
+    form = QuestionForm
     extra = 1
     inlines = (
         AnswerAdminInline,

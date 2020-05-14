@@ -34,7 +34,8 @@ class Question(models.Model):
     quiz = models.ForeignKey(
         Quiz,
         on_delete=models.CASCADE,
-        verbose_name='Вопрос'
+        verbose_name='Вопрос',
+        related_name='questions'
     )
 
     def __str__(self):
@@ -52,7 +53,8 @@ class Answer(models.Model):
     question = models.ForeignKey(
         Question,
         on_delete=models.CASCADE,
-        verbose_name='Тест'
+        verbose_name='Тест',
+        related_name='answers'
     )
 
     def __str__(self):
