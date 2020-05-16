@@ -9,8 +9,10 @@ $(document).ready(
                     $(this).attr('action'),
                     $(this).serialize()
                 ).done(function(data){
-                    if(data['message'].length > 0) {
+                    if(typeof(data['message'])!=='undefined' && data['message'].length > 0) {
                         self.find('.alert').removeClass('d-none').text(data['message']);
+                    } else {
+                        window.location = '/';
                     }
                 }).fail(function(xhr, status, error) {
                     self.find('.alert').removeClass('d-none').text('connection failure...')
