@@ -1,0 +1,25 @@
+{% extends 'index.html' %}
+
+{% block content %}
+    <div class="col-12">
+        <div class="challenge">
+            <div class="quiz-title mb-5 text-center">
+                {{ quiz_title }}
+            </div>
+            <div class="question ml-4 mb-4">
+                {{ question.text }}
+            </div>
+            <form class="ml-5">
+                {% for answer in question.answers.all %}
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" {% if question.multiple_correct_answers %}type="checkbox"{% else %}type="radio"{% endif %} value="" id="{{ answer.id }}">
+                        <label class="form-check-label" for="{{answer.id}}">
+                            {{ answer.text }}
+                        </label>
+                    </div>
+                {% endfor %}
+                <button form="register" type="submit" class="btn btn-primary mt-4">Проверить</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

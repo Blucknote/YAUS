@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 
 class Quiz(models.Model):
@@ -6,6 +7,19 @@ class Quiz(models.Model):
         max_length=128,
         verbose_name='Название теста'
     )
+    description = models.TextField(
+        max_length=512,
+        verbose_name='Описание теста'
+    )
+    slug = models.SlugField(
+        max_length=128,
+        help_text='Fills by self'
+    )
+
+    def save(self, force_insert=False, force_update=False, using=None,
+             update_fields=None):
+        self.slug = slugify(self.title, allow_unicode=True)
+        super(Quiz, self).save()
 
     def __str__(self):
         return self.title

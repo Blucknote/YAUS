@@ -1,0 +1,28 @@
+body {
+    height: 100vh;
+}
+
+.quiz-card a,
+.quiz-card a:visited,
+.quiz-card a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.quiz-title {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border: 1px solid #ba68c8;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.quiz-description {
+    border: 1px solid #ba68c8;
+    border-top: none;
+    height: 150px;
+}
+
+.challenge > .quiz-title {
+    border: none;
+}

@@ -22,10 +22,15 @@ class QuestionAdminInline(NestedStackedInline):
 
 
 class QuizAdmin(TabbedModelAdmin, NestedModelAdmin):
+
+    readonly_fields = ('slug',)
+
     tab_content = (
         (None, {
             'fields': (
                 'title',
+                'description',
+                'slug'
             )
         }),
     )
