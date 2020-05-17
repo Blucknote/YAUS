@@ -55,6 +55,9 @@ class Question(models.Model):
     def __str__(self):
         return self.text
 
+    class Meta:
+        ordering = ('order', 'id')
+
 
 class Answer(models.Model):
     text = models.CharField(

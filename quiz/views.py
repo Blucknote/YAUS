@@ -74,7 +74,7 @@ def register(request):
             {'message': 'User exists'}
         )
 
-    user = user_model.objects.create(
+    user = user_model.objects.create_user(
         username=username,
         password=password
     )
