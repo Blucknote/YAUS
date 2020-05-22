@@ -18,6 +18,25 @@ $(document).ready(
                     self.find('.alert').removeClass('d-none').text('connection failure...')
                 });
             }
+        );
+        $('button').click(
+            function (e) {
+                var self = $(this);
+                $('button').attr('aria-selected', false);
+                self.attr('aria-selected', true);
+                var articles = $(this).closest('section').find('article')
+                articles.attr(
+                    {
+                        "hidden": true,
+                        "aria-selected": false
+                    }
+                );
+                articles.filter(
+                    function (el) {
+                        return $(this).attr('id') == self.attr('aria-controls');
+                    }
+                ).removeAttr('hidden')
+            }
         )
     }
 );

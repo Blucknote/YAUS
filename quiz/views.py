@@ -31,6 +31,10 @@ def quiz(request, slug, question_num):
     return render(request, 'quiz.html', ctx)
 
 
+def check_answers(request, question):
+    pass
+
+
 @require_POST
 def login(request):
     username = request.POST['username']
